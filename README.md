@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Quest
 
-## Getting Started
+An interactive AI curriculum for developers who are new to AI.
 
-First, run the development server:
+**Learn AI by making it click:** concise explanations, experiments you can manipulate, and mastery-based challenges that unlock the next mission.
+
+## Included in this first build
+
+- Polished landing page and Chapter 01 learning map
+- A complete five-mission Chapter 01: AI vocabulary, examples, data splits, overfitting, and evaluation metrics
+- An interactive overfitting simulator with live training/validation error feedback
+- Three checkpoint questions per mission with hints, retries, immediate feedback, and mastery gating
+- Browser-local progress persistence plus a confirmed **Start over** action—no account required
+- Responsive layout for desktop and mobile
+
+## Stack
+
+- Next.js App Router + TypeScript
+- React 19
+- Tailwind CSS 4 (global design system styles)
+- LocalStorage for early progress persistence
+- Ready to deploy on Vercel
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Next steps
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Turn the learning content into schema-validated MDX/JSON files.
+2. Add the remaining Chapter 01 missions and prerequisite rules.
+3. Add unit and end-to-end tests for grading and progress recovery.
+4. Add optional GitHub authentication and cloud progress sync.
+5. Publish the repository and import it into Vercel.

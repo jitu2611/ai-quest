@@ -1,69 +1,72 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const milestones = [
+  ["01", "AI, ML & deep learning", "Learn the language"],
+  ["02", "Learning from examples", "See data become predictions"],
+  ["03", "Training & testing", "Measure what matters"],
+  ["04", "Generalization", "Spot overfitting"],
+  ["05", "Model judgment", "Make better decisions"],
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="landing-shell">
+      <nav className="nav" aria-label="Primary navigation">
+        <Link href="/" className="brand" aria-label="AI Quest home">
+          <span className="brand-mark">✦</span>
+          <span>AI Quest</span>
+        </Link>
+        <div className="nav-links">
+          <a href="#how-it-works">How it works</a>
+          <a href="#path">The path</a>
+          <Link href="/learn" className="button button-small">Start learning <span>→</span></Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      <section className="hero">
+        <div className="eyebrow"><span className="pulse-dot" /> A hands-on AI curriculum for developers</div>
+        <h1>Learn AI by <em>making it click.</em></h1>
+        <p className="hero-copy">
+          Short lessons, live experiments, and thoughtful challenges—built to turn AI concepts into practical intuition.
+        </p>
+        <div className="hero-actions">
+          <Link href="/learn" className="button">Begin Chapter 01 <span>→</span></Link>
+          <a href="#how-it-works" className="text-link">See how it works <span>↓</span></a>
         </div>
-      </main>
-    </div>
+        <p className="save-note">No account needed. Your progress stays in this browser.</p>
+      </section>
+
+      <section className="constellation" aria-label="Learning route preview">
+        <div className="constellation-label">CHAPTER 01 · HOW MACHINES LEARN</div>
+        <div className="route-line" />
+        {milestones.map(([number, title, note], index) => (
+          <div className={`route-stop route-stop-${index + 1}`} key={number}>
+            <div className={`route-orb ${index === 0 ? "active" : ""}`}>{index === 0 ? "✦" : number}</div>
+            <div className="route-copy"><strong>{title}</strong><span>{note}</span></div>
+          </div>
+        ))}
+      </section>
+
+      <section className="how-section" id="how-it-works">
+        <div>
+          <p className="section-kicker">THE LEARNING LOOP</p>
+          <h2>Read less.<br />Understand more.</h2>
+        </div>
+        <div className="loop-grid">
+          <article><span>01</span><h3>Get the idea</h3><p>Plain-English explanations without hand-wavy shortcuts.</p></article>
+          <article><span>02</span><h3>Try it yourself</h3><p>Change inputs, make predictions, and see the result unfold.</p></article>
+          <article><span>03</span><h3>Prove it</h3><p>Master challenges before the next concept opens up.</p></article>
+        </div>
+      </section>
+
+      <section className="path-section" id="path">
+        <div className="path-card">
+          <div><p className="section-kicker">YOUR FIRST QUEST</p><h2>How machines learn</h2><p>Five focused missions on data, predictions, training, and the biggest beginner trap: overfitting.</p></div>
+          <Link href="/learn" className="button button-light">Explore Chapter 01 <span>→</span></Link>
+        </div>
+      </section>
+
+      <footer><span>AI Quest <i>✦</i></span><span>Made for curious developers.</span></footer>
+    </main>
   );
 }
